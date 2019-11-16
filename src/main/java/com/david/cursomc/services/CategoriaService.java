@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.david.cursomc.domain.Categoria;
+import com.david.cursomc.dto.CategoriaDTO;
 import com.david.cursomc.repositories.CategoriaRepository;
 import com.david.cursomc.services.exceptions.DataIntegrityException;
 import com.david.cursomc.services.exceptions.ObjectNotFoundException;
@@ -52,5 +53,9 @@ public class CategoriaService {
 	
 	public Page<Categoria> findPage(Integer page, Integer linesPerPage,Sort sort) {		
 		return repo.findAll(PageRequest.of(page,linesPerPage, sort));
+	}
+	
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(),objDto.getNome());
 	}
 }

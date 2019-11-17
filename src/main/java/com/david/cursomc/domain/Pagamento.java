@@ -28,14 +28,12 @@ public abstract class Pagamento implements Serializable {
 	@MapsId
 	private Pedido pedido;
 
-	public Pagamento() {
-		// TODO Auto-generated constructor stub
-	}
+	public Pagamento() {}
 
 	public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
 		super();
 		this.id = id;
-		this.estado = estado.getCod();
+		this.estado = (estado == null) ? null : estado.getCod();
 		this.pedido = pedido;
 	}
 

@@ -9,17 +9,13 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import com.david.cursomc.domain.Pedido;
-
 public class SmtpEmailService extends AbstractEmailService{
 	
 	@Autowired
 	private MailSender mailSender;
 	
 	@Autowired
-	private JavaMailSender javaMailSender;
-	
-	
+	private JavaMailSender javaMailSender;	
 		
 	private static final Logger log = LoggerFactory.getLogger(SmtpEmailService.class);
 	
@@ -29,23 +25,12 @@ public class SmtpEmailService extends AbstractEmailService{
 		System.out.println(mailSender.toString());		
 		mailSender.send(msg);
 		log.info("Email enviado");		
-	}
-	
+	}	
 
 	@Override
 	public void sendHtmlEmail(MimeMessage msg) {
 		log.info("Enviando email... ");		
 		javaMailSender.send(msg);
-		log.info("Email enviado");	
-		
+		log.info("Email enviado");		
 	}
-
-
-	@Override
-	public void sendOrderConfirmationHtmlEmail(Pedido obj) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-
 }

@@ -17,7 +17,7 @@ import com.david.cursomc.domain.Pedido;
 
 public abstract class AbstractEmailService implements EmailService {
 	
-	@Value(value = "default.sender")
+	@Value("${default.sender}")
 	private String sender;
 	
 	@Autowired

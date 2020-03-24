@@ -1,0 +1,15 @@
+package com.david.cursomc.security;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+
+public class UserService {
+	
+	public static UserSS authenticated(){
+		try {
+			return (UserSS) SecurityContextHolder.getContext().getAuthentication().getCredentials();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+}
